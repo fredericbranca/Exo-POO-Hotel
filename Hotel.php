@@ -39,4 +39,28 @@ class Hotel
         $this->_chambres[] = $chambre;
     }
 
+                //Méthode pour afficher les chambres d'un Hotel//
+    public function afficherChambres()
+    {
+        $result = "<p> Liste des chambres de <b>" . $this->_nom . "</b> : </p>";
+        $result .=   "<table border='1' width='20%'>
+                        <tr align='center'> 
+                            <td> Chambre </td>
+                            <td> Prix </td>
+                            <td> Wifi </td>
+                            <td> Disponibilité </td>
+                        </tr>";
+        
+        foreach($this->_chambres as $chambre)
+        {
+        $result .= "    <tr align='center'> 
+                            <td> n°" . $chambre->getNumero() . "</td>
+                            <td>" . $chambre->getPrix() . " €</td>
+                            <td>" . $chambre->getWifi() . "</td>
+                            <td> " . $chambre->getEstDispo() . "</td>
+                        </tr>";
+        }
+        $result .= "</table>";
+        return $result;
+    }
 }
