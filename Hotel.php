@@ -4,14 +4,14 @@ class Hotel
 {
     private string $_nom;
     private string $_adresse;
-    private array $_chambre;
+    private array $_chambres;
 
                 //Constructeur pour définir un hotel//
-    public function __construct(string $nom, string $adresse, array $chambre)
+    public function __construct(string $nom, string $adresse)
     {
         $this->_nom = $nom;
         $this->_adresse = $adresse;
-        $this->_chambre = $chambre;
+        $this->_chambres = [];
     }
 
                 //Getter et Setter//
@@ -33,18 +33,10 @@ class Hotel
         $this->_adresse = $adresse;
     }
 
-    public function getChambre(): string
+                //Méthode pour ajouter une Chambre à un Hotel//
+    public function addChambre(Chambre $chambre)
     {
-        $result = "Chambre : ";
-        foreach($this->_chambre as $chambre)
-        {
-        $result .= $chambre ."/";
-        }
-        return $result;
-    }
-    public function setChambre(array $chambre)
-    {
-        $this->_chambre = $chambre;
+        $this->_chambres[] = $chambre;
     }
 
 }
