@@ -6,15 +6,15 @@ class Chambre
     private float $_prix;
     private bool $_estDispo;
     private Hotel $_hotel;
-    private array $_chambre;
 
                 //Constructeur pour définir une chambre//
-    public function __construct(int $numero, float $prix, bool $estDispo, Hotel $hotel)
+    public function __construct(int $numero, float $prix, Hotel $hotel)
     {
         $this->_numero = $numero;
         $this->_prix = $prix;
-        $this->_estDispo = $estDispo;
+        $this->_estDispo = 1;
         $this->_hotel = $hotel;
+        $this->_hotel->addChambre($this);
     }
 
                 //Getter et Setter//
