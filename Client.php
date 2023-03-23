@@ -5,7 +5,7 @@ class Client
     private string $_nom;
     private string $_prenom;
 
-                //Constructeur pour définir le client//
+                //Constructeur pour définir un client//
     public function __construct(string $nom, string $prenom)
     {
         $this->_nom = $nom;
