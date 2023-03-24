@@ -13,7 +13,7 @@ class Chambre
     {
         $this->_numero = $numero;
         $this->_prix = $prix;
-        $this->_estDispo = True;
+        $this->_estDispo = False;
         $this->_wifi = $wifi;
         $this->_hotel = $hotel;
         $this->_hotel->addChambre($this);
@@ -42,11 +42,11 @@ class Chambre
     {
         if($this->_estDispo == True)
         {
-            return "Oui";
+            return "DISPONIBLE";
         }
         else
         {
-            return "Non";
+            return mb_strtoupper("Réservée");
         }
     }
     public function setEstDispo(bool $estDispo)
