@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Exercice POO Hotel</title>
 </head>
 <body>
@@ -53,7 +54,7 @@ $chambre29 = new Chambre(29, 300, True, $hotel1);
 $chambre30 = new Chambre(30, 300, True, $hotel1);
 $chambre31 = new Chambre(1, 150, False, $hotel2);
 $chambre32 = new Chambre(2, 150, False, $hotel2);
-$chambre33 = new Chambre(3, 199, True, $hotel2);
+$chambre33 = new Chambre(3, 190, True, $hotel2);
 $chambre34 = new Chambre(4, 190, True, $hotel2);
 $chambre35 = new Chambre(1, 180, False, $hotel3);
 $chambre36 = new Chambre(2, 180, False, $hotel3);
@@ -61,9 +62,8 @@ $chambre37 = new Chambre(3, 200, True, $hotel3);
 $chambre38 = new Chambre(4, 200, True, $hotel3);
 
 
-echo $hotel1->afficherChambres();
 echo $hotel2->afficherChambres();
-echo $hotel3->afficherChambres();
+echo $hotel1->afficherChambres();
 ?>
 
 </body>

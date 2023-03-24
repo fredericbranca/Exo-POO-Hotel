@@ -31,7 +31,7 @@ class Client
         $this->_prenom = $prenom;
     }
 
-                //Méthode pour afficher le nom et prenom du client//
+                //Méthode __toString pour afficher le nom et prenom du client//
     function __toString()
     {
         return $this->_nom . " " . $this->_prenom;
