@@ -13,7 +13,7 @@ class Chambre
     {
         $this->_numero = $numero;
         $this->_prix = $prix;
-        $this->_estDispo = False;
+        $this->_estDispo = true;
         $this->_wifi = $wifi;
         $this->_hotel = $hotel;
         $this->_hotel->addChambre($this);
@@ -42,11 +42,11 @@ class Chambre
     {
         if($this->_estDispo == True)
         {
-            return "DISPONIBLE";
+            return "<td><span class='badge badge-green'>DISPONIBLE</span> ";
         }
         else
         {
-            return mb_strtoupper("Réservée");
+            return "<td><span class='badge badge-red'>Réservée</span>";
         }
     }
     public function setEstDispo(bool $estDispo)
@@ -58,11 +58,11 @@ class Chambre
     {
         if($this->_wifi == True)
         {
-            return "Oui";
+            return "<img src='wifi.png' width=25%>";
         }
         else
         {
-            return "Non";
+            return " ";
         }
     }
     public function setwifi(bool $wifi)

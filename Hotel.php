@@ -38,29 +38,31 @@ class Hotel
     {
         $this->_chambres[] = $chambre;
     }
-
+    
                 //Méthode pour afficher les chambres d'un Hotel//
     public function afficherChambres()
     {
-        $result = "<p> Liste des chambres de <b>" . $this->_nom . "</b> : </p>";
-        $result .=   "<table border='1' width='20%'>
-                        <tr align='center'> 
-                            <td> Chambre </td>
-                            <td> Prix </td>
-                            <td> Wifi </td>
-                            <td> Disponibilité </td>
+        $result = "<p> Statuts des chambres de <b>" . $this->_nom . "</b> : </p>";
+        $result .=   "<table>
+                        <tr>
+                        <th> CHAMBRE </th>
+                        <th> PRIX </th>
+                        <th> WIFI </th>
+                        <th> ETAT </th>
                         </tr>";
-        
         foreach($this->_chambres as $chambre)
         {
-        $result .= "    <tr align='center'> 
-                            <td> n°" . $chambre->getNumero() . "</td>
-                            <td>" . $chambre->getPrix() . " €</td>
-                            <td>" . $chambre->getWifi() . "</td>
-                            <td> " . $chambre->getEstDispo() . "</td>
+            $color = "#EFEFEF";
+            
+            $result .= "<tr> 
+                        <td> Chambre " . $chambre->getNumero() . "</td>
+                        <td>"   . $chambre->getPrix() . " €</td>
+                        <td>"   . $chambre->getWifi() . "</td>"
+                                .$chambre->getEstDispo() . "</td>
                         </tr>";
+
         }
-        $result .= "</table>";
+        $result .= "</table><br><br>";
         return $result;
     }
 }
