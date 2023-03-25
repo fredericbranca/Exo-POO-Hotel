@@ -6,15 +6,17 @@ class Chambre
     private float $_prix;
     private bool $_estDispo;
     private bool $_wifi;
+    private int $_lit;
     private Hotel $_hotel;
 
                 //Constructeur pour définir une chambre//
-    public function __construct(int $numero, float $prix, bool $wifi, Hotel $hotel)
+    public function __construct(int $numero, float $prix, bool $wifi, int $lit, Hotel $hotel)
     {
         $this->_numero = $numero;
         $this->_prix = $prix;
         $this->_estDispo = True;
         $this->_wifi = $wifi;
+        $this->_lit = $lit;
         $this->_hotel = $hotel;
         $this->_hotel->addChambre($this);
     }
@@ -65,9 +67,29 @@ class Chambre
             return " ";
         }
     }
+    public function getwifi2(): string
+    {
+        if($this->_wifi == True)
+        {
+            return "Oui";
+        }
+        else
+        {
+            return "Non";
+        }
+    }
     public function setwifi(bool $wifi)
     {
         $this->_wifi = $wifi;
+    }
+
+    public function getLit(): int
+    {
+        return $this->_lit;
+    }
+    public function setLit(int $lit)
+    {
+        $this->_lit = $lit;
     }
 
     public function getHotel(): Hotel
