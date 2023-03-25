@@ -5,6 +5,7 @@ class Hotel
     private string $_nom;
     private string $_adresse;
     private array $_chambres;
+    private array $_reservation;
 
                 //Constructeur pour définir un hotel//
     public function __construct(string $nom, string $adresse)
@@ -12,6 +13,7 @@ class Hotel
         $this->_nom = $nom;
         $this->_adresse = $adresse;
         $this->_chambres = [];
+        $this->_reservation = [];
     }
 
                 //Getter et Setter//
@@ -37,6 +39,12 @@ class Hotel
     public function addChambre(Chambre $chambre)
     {
         $this->_chambres[] = $chambre;
+    }
+
+                //Méthode pour ajouter une reservation à un Hotel//
+    public function addReservation(Reservation $reservation)
+    {
+        $this->_reservation[] = $reservation;
     }
     
                 //Méthode pour afficher les chambres d'un Hotel//
