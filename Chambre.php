@@ -13,7 +13,7 @@ class Chambre
     {
         $this->_numero = $numero;
         $this->_prix = $prix;
-        $this->_estDispo = true;
+        $this->_estDispo = True;
         $this->_wifi = $wifi;
         $this->_hotel = $hotel;
         $this->_hotel->addChambre($this);
