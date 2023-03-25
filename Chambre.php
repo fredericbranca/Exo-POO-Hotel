@@ -42,11 +42,11 @@ class Chambre
     {
         if($this->_estDispo == True)
         {
-            return "<td><span class='badge badge-green'>DISPONIBLE</span> ";
+            return "<span class='badge badge-green'>DISPONIBLE</span> ";
         }
         else
         {
-            return "<td><span class='badge badge-red'>Réservée</span>";
+            return "<span class='badge badge-red'>Réservée</span>";
         }
     }
     public function setEstDispo(bool $estDispo)
@@ -58,7 +58,7 @@ class Chambre
     {
         if($this->_wifi == True)
         {
-            return "<img src='wifi.png' width=25%>";
+            return "<img src='wifi.png'>";
         }
         else
         {

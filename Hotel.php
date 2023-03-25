@@ -57,10 +57,9 @@ class Hotel
             $result .= "<tr> 
                         <td> Chambre " . $chambre->getNumero() . "</td>
                         <td>"   . $chambre->getPrix() . " €</td>
-                        <td>"   . $chambre->getWifi() . "</td>"
-                                .$chambre->getEstDispo() . "</td>
+                        <td>"   . $chambre->getWifi() . "</td>
+                        <td>"   .$chambre->getEstDispo() . "</td>
                         </tr>";
-
         }
         $result .= "</table><br><br>";
         return $result;
