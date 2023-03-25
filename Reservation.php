@@ -3,16 +3,17 @@
 class Reservation {
     private Chambre $_chambre;
     private Client $_client;
-    private string $_dateDebut;
-    private string $_dateFin;
+    private DateTime $_dateDebut;
+    private DateTime $_dateFin;
 
     //Constructeur pour définir une réservation//
     public function __construct(Chambre $chambre, Client $client, string $dateDebut, string $dateFin)
     {
         $this->_chambre = $chambre;
         $this->_client = $client;
-        $this->_dateDebut = $dateDebut;
-        $this->_dateFin = $dateFin;
+        $this->_dateDebut = new DateTIme($dateDebut);
+        $this->_dateFin = new DateTime($dateFin);
+        $this->_chambre->setEstDispo(0);
         $this->_chambre->getHotel()->addReservation($this);
         $this->_client->addReservation($this);
     }
@@ -36,7 +37,7 @@ class Reservation {
         $this->_client = $client;
     }
 
-    public function getDateDebut(): string
+    public function getDateDebut(): DateTime
     {
         return $this->_dateDebut;
     }
@@ -45,7 +46,7 @@ class Reservation {
         $this->_dateDebut = new DateTime($dateDebut);
     }
 
-    public function getDateFin(): string
+    public function getDateFin(): DateTime
     {
         return $this->_dateFin;
     }
