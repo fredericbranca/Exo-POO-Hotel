@@ -64,7 +64,7 @@ class Client
         } else {
             $result .= "<span class='badge-resa'>" . $this->nbResaClient() . " RESERVATION(S)</span>";
             foreach ($this->_reservations as $reservation) {
-                $result .= "<p>" . $reservation->getClient() . " - Chambre " . $reservation->getChambre()->getNumero() . " - du " . $reservation->getDateDebut() . " au " . $reservation->getDateFin() . "<p>";
+                $result .= "<p>" . $reservation->getClient() . " - Chambre " . $reservation->getChambre()->getNumero() . " (". $reservation->getChambre()->getLit() . " lit(s) - " . $reservation->getChambre()->getPrix() . " € - Wifi : " . $reservation->getChambre()->getWifi2() . ") du " . $reservation->getDateDebut()->format("d-m-Y") . " au " . $reservation->getDateFin()->format("d-m-Y") . "<p>";
             }
         }
         return $result;
