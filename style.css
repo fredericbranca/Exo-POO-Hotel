@@ -30,20 +30,20 @@ p {
 }
 
 table {
-    border-spacing: 0;
+    border-collapse: collapse;
     background-color:#ffffff;
-    padding-left: 1%;
+    margin-left: 1%;
 } 
 
 td {
-    border-bottom: solid hwb(281 79% 13%);
+    /* border-bottom: solid hwb(281 79% 13%); */
     font-family: "Times New Roman";
     height:50px;
     width:200px;
 }
 
 th {
-    border-bottom: solid hwb(281 79% 13%);
+    /* border-bottom: solid hwb(281 79% 13%); */
     color:hsl(140, 6%, 62%);
     font-weight: normal;
     font-size: 20px;
@@ -58,5 +58,6 @@ tr {
 
 tr:nth-child(even) {
     background-color: rgb(226, 205, 238);
-    border: solid hsl(180, 85%, 74%);
+    border-bottom: 1pt solid hwb(280 67% 13%);
+    border-top: 1pt solid hwb(280 67% 13%);
   }
