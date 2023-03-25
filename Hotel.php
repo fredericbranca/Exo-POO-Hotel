@@ -92,7 +92,7 @@ class Hotel
         {
             $result .= "<span class='badge-resa'>" . $this->nbReservation() . " RESERVATION(S)</span>";
             foreach ($this->_reservations as $reservation) {
-                $result .= "<p>" . $reservation->getClient() . " - Chambre " . $reservation->getChambre()->getNumero() . " - du " . $reservation->getDateDebut() . " au " . $reservation->getDateFin() . "<p>";
+                $result .= "<p>" . $reservation->getClient() . " - Chambre " . $reservation->getChambre()->getNumero() . " - du " . $reservation->getDateDebut()->format("d-m-Y") . " au " . $reservation->getDateFin()->format("d-m-Y") . "<p>";
             }
         }
         $result .= "<br>";
