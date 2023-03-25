@@ -12,9 +12,18 @@
 <?php
 
 //Chargement des classes//
+
+// use LDAP\Result;
+
 spl_autoload_register(function ($class_name) {
     include $class_name . '.php';
 });
+
+//Instanciation//
+$client1 = new Client("Baptiste", "Trabelsi");
+$client2 = new Client("Jani", "Pallara");
+$client3 = new Client("Raph", "Bojo");
+$client4 = new Client("Antho", "Lulu");
 
 //Instanciation des Hotels//
 $hotel1 = new Hotel("Hôtel **** Strasbourg", "10 route de la Gare 67000 STRASBOURG");
@@ -61,9 +70,22 @@ $chambre36 = new Chambre(2, 180, False, $hotel3);
 $chambre37 = new Chambre(3, 200, True, $hotel3);
 $chambre38 = new Chambre(4, 200, True, $hotel3);
 
+//Instanciation des Réservations//
+$reservation1 = new Reservation($chambre1, $client1, "25-03-2023", "30-03-2023");
+$reservation2 = new Reservation($chambre36, $client2, "01-04-2023", "02-04-2023");
+$reservation3 = new Reservation($chambre4, $client3, "22-03-2023", "08-04-2023");
+// $reservation4 = new Reservation($chambre32, $client4, "24-03-2023", "26-03-2023");
+$reservation5 = new Reservation($chambre1, $client1, "01-04-2023", "08-04-2023");
+
+//Affichage//
+
+echo $hotel1->afficherReservation();
+echo $hotel2->afficherReservation();
+echo $hotel3->afficherReservation();
 
 echo $hotel2->afficherChambres();
 echo $hotel1->afficherChambres();
+
 ?>
 
 </body>
