@@ -114,4 +114,8 @@ class Hotel
     }
 
     //Méthode toString//
+    function __toString()
+    {
+        return $this->_nom . "<br>" . $this->_adresse;
+    }
 }
