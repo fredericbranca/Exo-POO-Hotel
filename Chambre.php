@@ -40,45 +40,21 @@ class Chambre
         $this->_prix = $prix;
     }
 
-    public function getEstDispo(): string
+    public function getEstDispo(): bool
     {
-        if($this->_estDispo == True)
-        {
-            return "<span class='badge badge-green'>DISPONIBLE</span> ";
-        }
-        else
-        {
-            return "<span class='badge badge-red'>Réservée</span>";
-        }
+        return $this->_estDispo;
     }
     public function setEstDispo(bool $estDispo)
     {
         return $this->_estDispo = $estDispo;
     }
 
-    public function getwifi(): string
+    public function getwifi(): bool
     {
-        if($this->_wifi == True)
-        {
-            return "<img src='wifi.png'>";
-        }
-        else
-        {
-            return " ";
-        }
+        return $this->_wifi;
     }
-    public function getwifi2(): string
-    {
-        if($this->_wifi == True)
-        {
-            return "Oui";
-        }
-        else
-        {
-            return "Non";
-        }
-    }
-    public function setwifi(bool $wifi)
+
+    public function setWifi(bool $wifi)
     {
         $this->_wifi = $wifi;
     }
@@ -99,6 +75,52 @@ class Chambre
     public function setHotel(Hotel $hotel)
     {
         $this->_hotel = $hotel;
+    }
+
+        //Méthode pour afficher la disponibilité d'une chambre en textuel//
+
+    public function EstDispoTextuel(): string
+    {
+        if($this->_estDispo == True)
+        {
+            return "<span class='badge badge-green'>DISPONIBLE</span> ";
+        }
+        else
+        {
+            return "<span class='badge badge-red'>Réservée</span>";
+        }
+    }
+
+        //Méthode pour afficher l'image du Wifi//
+    public function wifiImg(): string
+    {
+        if($this->_wifi == True)
+        {
+            return "<img src='wifi.png'>";
+        }
+        else
+        {
+            return " ";
+        }
+    }
+
+    //Méthode pour afficher le wifi textuel//
+    public function wifiTextuel(): string 
+    {
+        if($this->_wifi == True)
+        {
+            return "Oui";
+        }
+        else
+        {
+            return "Non";
+        }
+    }
+
+    //Méthode __toString//
+    function __toString()
+    {
+        return " - Chambre " . $this->getNumero() . " (" . $this->getLit() . " lit(s) . " . $this->getPrix() . " € - Wifi : " . $this->wifiTextuel() . ") ";
     }
 
 }
