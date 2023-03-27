@@ -13,8 +13,6 @@
 
 //Chargement des classes//
 
-// use LDAP\Result;
-
 spl_autoload_register(function ($class_name) {
     include $class_name . '.php';
 });
@@ -74,19 +72,24 @@ $chambre38 = new Chambre(4, 200, True, 2, $hotel3);
 $reservation1 = new Reservation($chambre1, $client1, "25-03-2023", "30-03-2023");
 $reservation2 = new Reservation($chambre36, $client2, "01-04-2023", "02-04-2023");
 $reservation3 = new Reservation($chambre4, $client3, "22-03-2023", "08-04-2023");
-$reservation4 = new Reservation($chambre32, $client4, "24-03-2023", "26-03-2023");
+// $reservation4 = new Reservation($chambre32, $client4, "24-03-2023", "26-03-2023");
 $reservation5 = new Reservation($chambre21, $client1, "01-04-2023", "08-04-2023");
 
 //Affichage//
 
+// Afficher les réservations d'un Hotel//
 echo $hotel1->afficherReservation();
 echo $hotel2->afficherReservation();
 echo $hotel3->afficherReservation();
-// echo $client1->resaCLient();
-// echo $client2->resaCLient();
-// echo $client3->resaCLient();
-// echo $client4->resaCLient();
 
+
+//Afficher réservation d'un client//
+echo $client1->resaCLient();
+echo $client2->resaCLient();
+echo $client3->resaCLient();
+echo $client4->resaCLient();
+
+//Afficher le statut des chambres d'un Hôtel//
 echo $hotel2->afficherChambres();
 echo $hotel3->afficherChambres();
 echo $hotel1->afficherChambres();
