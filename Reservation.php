@@ -58,6 +58,6 @@ class Reservation {
     //Méthode __toString (client, hotel et chambre)
     public function __toString()
     {
-        return $this->_client . " " . $this->_chambre->getHotel() . " " . $this->_chambre;
+        return " du " . $this->getDateDebut()->format("d-m-Y") . " au " . $this->getDateFin()->format("d-m-Y");
     }
 }
