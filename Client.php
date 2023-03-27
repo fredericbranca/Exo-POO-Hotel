@@ -4,6 +4,7 @@ class Client
 {
     private string $_nom;
     private string $_prenom;
+    private int $_nbResa;
     private array $_reservations;
 
     //Constructeur pour définir un client//
@@ -12,6 +13,7 @@ class Client
         $this->_nom = $nom;
         $this->_prenom = $prenom;
         $this->_reservations = [];
+        $this->_nbResa = 0;
     }
 
     //Getter et Setter//
@@ -37,23 +39,19 @@ class Client
     public function addReservation(Reservation $reservation)
     {
         $this->_reservations[] = $reservation;
+        $this->_nbResa ++; //+=1
     }
-
-    //Méthode __toString pour afficher le nom et prenom du client//
-    function __toString()
-    {
-        return $this->_nom . " " . $this->_prenom;
-    }
+    //On pourrait ajouter une méthode pour annuler une réservation//
 
     //Méthode pour afficher le nombre de résa d'un client//
-    public function nbResaClient()
-    {
-        $result = 0;
-        foreach ($this->_reservations as $reservation) {
-            $result += 1;
-        }
-        return $result;
-    }
+    // public function nbResaClient()
+    // {
+    //     $result = 0;
+    //     foreach ($this->_reservations as $reservation) {
+    //         $result += 1;
+    //     }
+    //     return $result;
+    // }
 
     //Méthode pour afficher la résa d'un client//
     public function resaCLient()
@@ -62,11 +60,17 @@ class Client
         if (empty($this->_reservations)) {
             $result .= "<p> Aucune réservation ! <p>";
         } else {
-            $result .= "<span class='badge-resa'>" . $this->nbResaClient() . " RESERVATION(S)</span>";
+            $result .= "<span class='badge-resa'>" . $this->_nbResa . " RESERVATION(S)</span>";
             foreach ($this->_reservations as $reservation) {
-                $result .= "<p>" . $reservation->getClient() . " - Chambre " . $reservation->getChambre()->getNumero() . " (". $reservation->getChambre()->getLit() . " lit(s) - " . $reservation->getChambre()->getPrix() . " € - Wifi : " . $reservation->getChambre()->getWifi2() . ") du " . $reservation->getDateDebut()->format("d-m-Y") . " au " . $reservation->getDateFin()->format("d-m-Y") . "<p>";
+                $result .= "<p>" . $reservation->getClient() . $reservation->getChambre() . $reservation;
             }
         }
         return $result;
+    }
+
+    //Méthode __toString pour afficher le nom et prenom du client//
+    function __toString()
+    {
+        return $this->_nom . " " . $this->_prenom;
     }
 }
