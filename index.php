@@ -77,6 +77,12 @@ $reservation5 = new Reservation($chambre21, $client1, "01-04-2023", "08-04-2023"
 
 //Affichage//
 
+// echo $reservation1->annulerResa();
+// echo $reservation2->annulerResa();
+// echo $reservation3->annulerResa();
+// echo $reservation4->annulerResa();
+// echo $reservation5->annulerResa();
+
 //Afficher les infos d'un Hotel//
 echo $hotel1->infosHotel();
 echo $hotel2->infosHotel();
@@ -86,7 +92,6 @@ echo $hotel3->infosHotel();
 echo $hotel1->afficherReservation();
 echo $hotel2->afficherReservation();
 echo $hotel3->afficherReservation();
-
 
 //Afficher réservation d'un client//
 echo $client1->resaCLient();

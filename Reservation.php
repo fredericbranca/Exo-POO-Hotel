@@ -55,6 +55,16 @@ class Reservation {
         $this->_dateFin = new DateTime($dateFin);
     }
 
+    //Méthode pour annuler une réservation//
+    function annulerResa()
+    {
+        $this->_client->annulerResa($this);
+        $this->_chambre->getHotel()->annulerResa($this);
+        $this->_chambre->setEstDispo(1);
+        $result = "<p> Réservation annulée : " . $this->getClient() . " Chambre " . $this->getChambre() . $this . "</p>";
+        return $result;
+    }
+
     //Méthode __toString (client, hotel et chambre)
     public function __toString()
     {

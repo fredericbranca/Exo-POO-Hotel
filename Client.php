@@ -41,17 +41,13 @@ class Client
         $this->_reservations[] = $reservation;
         $this->_nbResa ++; //+=1
     }
-    //On pourrait ajouter une méthode pour annuler une réservation//
 
-    //Méthode pour afficher le nombre de résa d'un client//
-    // public function nbResaClient()
-    // {
-    //     $result = 0;
-    //     foreach ($this->_reservations as $reservation) {
-    //         $result += 1;
-    //     }
-    //     return $result;
-    // }
+    //Méthode pour supprimer une résa//
+    function annulerResa($reservation)
+    {
+        unset($this->_reservations[array_search($reservation, $this->_reservations)]);
+        $this->_nbResa -= 1;
+    }
 
     //Méthode pour afficher la résa d'un client//
     public function resaCLient()

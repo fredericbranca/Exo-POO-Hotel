@@ -16,7 +16,7 @@ class Hotel
         $this->_adresse = $adresse;
         $this->_chambres = [];
         $this->_nbResa = 0;
-        $this->_reservations= [];
+        $this->_reservations = [];
         $this->_nbChambre = 0;
     }
 
@@ -43,14 +43,14 @@ class Hotel
     public function addChambre(Chambre $chambre)
     {
         $this->_chambres[] = $chambre;
-        $this->_nbChambre ++;
+        $this->_nbChambre++;
     }
 
     //Méthode pour ajouter une reservation à un Hotel//
     public function addReservation(Reservation $reservation)
     {
         $this->_reservations[] = $reservation;
-        $this->_nbResa ++;
+        $this->_nbResa++;
     }
 
     //Méthode pour afficher les chambres d'un Hotel//
@@ -82,11 +82,9 @@ class Hotel
     public function afficherReservation()
     {
         $result = "<div class='titre2'> Reservations de l'" . $this->_nom . "</div>";
-        if(empty($this->_reservations)){
+        if (empty($this->_reservations)) {
             $result .= "<p> Aucune réservation ! <p>";
-        }
-        else
-        {
+        } else {
             $result .= "<span class='badge-resa'>" . $this->_nbResa . " RESERVATION(S)</span>";
             foreach ($this->_reservations as $reservation) {
                 $result .= "<p>" . $reservation->getClient() . " - Chambre " . $reservation->getChambre()->getNumero() . "" . $reservation . "<p>";
@@ -106,6 +104,13 @@ class Hotel
         $result .= "<p> Nombre de chambre dispo : " . $this->_nbChambre - $this->_nbResa . "</p>";
         $result .= "<br>";
         return $result;
+    }
+
+    //Méthode pour supprimer une résa//
+    function annulerResa($reservation)
+    {
+        unset($this->_reservations[array_search($reservation, $this->_reservations)]);
+        $this->_nbResa -= 1;
     }
 
     //Méthode toString//
