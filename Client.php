@@ -56,7 +56,7 @@ class Client
         if (empty($this->_reservations)) {
             $result .= "<p> Aucune réservation ! <p>";
         } else {
-            $result .= "<span class='badge-resa'>" . $this->_nbResa . " RESERVATION(S)</span>";
+            $result .= "<span class='badge-resa'>" . count($this->_reservations) . " RESERVATION(S)</span>";
             foreach ($this->_reservations as $reservation) {
                 $result .= "<p>" . $reservation->getClient() . $reservation->getChambre() . $reservation;
             }

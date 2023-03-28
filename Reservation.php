@@ -32,6 +32,7 @@ class Reservation {
     {
         return $this->_client;
     }
+    
     public function setClient(Client $client)
     {
         $this->_client = $client;
